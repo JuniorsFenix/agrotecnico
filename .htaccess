@@ -1,0 +1,181 @@
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+
+Options +FollowSymLinks
+
+RewriteEngine on
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteBase /_W3bAgr0T3C/
+
+ErrorDocument 404 /pagina-no-encontrada
+
+# Force www
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^css/(.*)?$ css/$1 [L]
+RewriteRule ^sadminc/css/(.*)?$ admin/css/$1 [L]
+RewriteRule ^sadminc/image/(.*)?$ admin/image/$1 [L]
+RewriteRule ^imagenes/(.*)?$ imagenes/$1 [L]
+RewriteRule ^php/(.*)?$ php/$1 [L]
+RewriteRule ^php/js/(.*)?$ php/js/$1 [L]
+RewriteRule ^php/player/build/(.*)?$ php/player/build/$1 [L]
+RewriteRule ^fotos/(.*)?$ fotos/$1 [L]
+
+RewriteRule ^/?$ php/matriz.php?ciudad=1&pagename=home [L]
+
+RewriteRule ^home/?$ php/matriz.php?ciudad=1&pagename=home [L]
+
+RewriteRule ^sadminc/?$ admin/admin.php [L]
+RewriteRule ^sadminc/login/?$ admin/admin.php [L]
+
+RewriteRule ^sadminc/clickeeb/?$ admin/home.php [L]
+RewriteRule ^sadminc/(.*)?$ admin/$1 [L]
+
+RewriteRule ^productos/categoria/([a-zA-Z0-9_-]+)/pagina([0-9]+)$ php/productosListar.php?ciudad=1&categoria=$1&pag=$2 [L]
+
+RewriteRule ^galeria/?$ php/galeria.php?ciudad=1 [L]
+
+RewriteRule ^gracias-por-contactarnos/?$ php/gracias-por-contactarnos.php?ciudad=1 [L]
+
+RewriteRule ^videos/?$ php/videos.php?ciudad=1 [L]
+RewriteRule ^videos/categoria([0-9]+)/?$ php/videos.php?ciudad=1&categoria=$1 [L]
+RewriteRule ^videos/video([0-9]+)/?$ php/videos.php?idvideo=$1&ciudad=1 [L]
+
+RewriteRule ^carrito/?$ php/carro.php?ciudad=1 [L]
+RewriteRule ^carritoNIT/?$ php/carro2.php?ciudad=1 [L]
+RewriteRule ^confirmar-pedido/?$ php/confirmar.php?ciudad=1 [L]
+RewriteRule ^actualizar-orden$ php/actualizarEstado.php [L]
+
+RewriteRule ^actualizar-contra-entrega$ php/actualizarEntrega.php [L]
+
+RewriteRule ^confirmar-pedido-NEW/?$ php/confirmar_NEW.php?ciudad=1 [L]
+RewriteRule ^actualizar-orden-PAYU$ php/actualizarEstado_PAYU.php [L]
+RewriteRule ^actualizar-orden-WOMPI$ php/actualizarEstado_WOMPI.php [L]
+RewriteRule ^actualizar-orden-PSE$ php/actualizarEstado_PSE.php [L]
+
+# RewriteRule ^enviar-email/?$ php/enviaremail.php?ciudad=1 [L]
+
+RewriteRule ^productos/?$ php/productos.php [L]
+RewriteRule ^productos/categoria/([a-zA-Z0-9_-]+)/?$ php/productosListar.php?ciudad=1&categoria=$1 [L]
+RewriteRule ^productos/categoria/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ php/productosListar.php?ciudad=1&categoria=$1&marca=$2 [L]
+RewriteRule ^productos/categoria$ php/productosListar.php [L]
+RewriteRule ^productos/([a-zA-Z0-9_-]+)/?$ php/productosver.php?ciudad=1&url=$1 [L]
+RewriteRule ^productos/marca/([a-zA-Z0-9_-]+)/?$ php/marcas.php?ciudad=1&marca=$1 [L]
+
+RewriteRule ^buscar/?$ php/buscar.php [L]
+
+# RewriteRule ^verbanner/([0-9]+)$ php/verbanner.php?id=$1&ciudad=1 [L]
+
+RewriteRule ^galeria/categoria([0-9]+)$ php/galeria.php?ciudad=1&categoria=$1 [L]
+
+RewriteRule ^iniciar-sesion$ php/iniciar-sesion.php?ciudad=1 [L]
+RewriteRule ^cerrar-sesion$ php/cerrar-sesion.php [L]
+RewriteRule ^registrarse$ php/registrarse.php?ciudad=1 [L]
+RewriteRule ^actualizar-cuenta$ php/actualizar-cuenta.php?ciudad=1 [L]
+
+RewriteRule ^clientes$ php/clientes.php [L]
+RewriteRule ^nuevo-cliente$ php/nuevo-cliente.php?ciudad=1 [L]
+RewriteRule ^editar-cliente/([0-9]+)$ php/editar-cliente.php?ciudad=1&id=$1 [L]
+RewriteRule ^cotizaciones php/cotizaciones.php?ciudad=1 [L]
+
+RewriteRule ^mi-cuenta$ php/mi-cuenta.php?ciudad=1 [L]
+RewriteRule ^mi-cuenta/datos-personales$ php/datos-personales.php?ciudad=1 [L]
+RewriteRule ^mi-cuenta/cambiar-clave$ php/cambiar-clave.php?ciudad=1 [L]
+RewriteRule ^mi-cuenta/datos-facturacion$ php/datos-facturacion.php?ciudad=1 [L]
+RewriteRule ^mi-cuenta/mis-compras$ php/mis-compras.php?ciudad=1 [L]
+
+RewriteRule ^add-to-wishlist/([a-zA-Z0-9_-]+)$ php/add-to-wishlist.php?ciudad=1&url=$1 [L]
+
+RewriteRule ^mi-cuenta/lista-de-deseos/eliminar/([0-9]+)$ php/lista-de-deseos.php?ciudad=1&eliminar=1&idproducto=$1 [L]
+RewriteRule ^mi-cuenta/lista-de-deseos/editar/([a-zA-Z0-9_-]+)$ php/editar-lista.php?ciudad=1&url=$1 [L]
+RewriteRule ^mi-cuenta/crear-lista$ php/crear-lista.php?ciudad=1 [L]
+RewriteRule ^mi-cuenta/lista-de-deseos$ php/lista-de-deseos.php?ciudad=1 [L]
+RewriteRule ^mi-cuenta/lista-de-deseos/([a-zA-Z0-9_-]+)$ php/lista-de-deseos.php?ciudad=1&url=$1 [L]
+
+RewriteRule ^cotizar$ php/iniciar-sesion.php?ciudad=1 [L]
+RewriteRule ^carrito-cotizar/?$ php/carroCotizar.php?ciudad=1 [L]
+RewriteRule ^confirmar-cotizacion/?$ php/confirmarCotizacion.php?ciudad=1 [L]
+
+RewriteRule ^encuesta-cotizacion/([0-9]+)/([^/.]+)/?$ php/encuesta-cotizacion.php?ciudad=1&carro=$1&respuesta=$2 [L]
+RewriteRule ^responder-cotizacion/([0-9]+)/?$ php/respuesta-cotizacion.php?ciudad=1&carro=$1 [L]
+RewriteRule ^responder-cotizacion/([0-9]+)/pagar/?$ php/respuesta-cotizacion.php?ciudad=1&carro=$1&pagar=si [L]
+
+RewriteRule ^ZonaPrivada/?$ php/logueo.php?ciudad=1 [L]
+RewriteRule ^Registro/?$ php/logueoRegistrarme.php?ciudad=1 [L]
+RewriteRule ^RecuperarClave/?$ php/logueoRecuperarclave.php?ciudad=1 [L]
+RewriteRule ^ZonaPrivada/DatosPersonales/?$ php/logueoMuroDatosPersonales.php?ciudad=1 [L]
+RewriteRule ^ZonaPrivada/logout/?$ php/logueo.php?logout=1&ciudad=1 [L]
+RewriteRule ^ZonaPrivada/fotos/?$ php/logueoFoto.php?ciudad=1 [L]
+RewriteRule ^ZonaPrivada/fotos/editar/?$ php/logueoFotoEditar.php?ciudad=1& [L]
+RewriteRule ^ZonaPrivada/fotos/editar([0-9]+)/?$ php/logueoFotoEditar.php?ciudad=1&idarchivo=$1 [L]
+RewriteRule ^ZonaPrivada/preguntas/?$ php/logueoPreguntas.php?ciudad=1 [L]
+RewriteRule ^ZonaPrivada/fotos/([0-9]+)/?$ php/logueoMuroFotos.php?ciudad=1&idusuario=$1 [L]
+
+RewriteRule ^tickets/?$ php/TicketTodosTickets.php?ciudad=1 [L]
+RewriteRule ^tickets/ticket([0-9]+)/?$ php/TicketVer.php?ciudad=1&idticket=$1 [L]
+RewriteRule ^tickets/ticket([0-9]+)/([a-zA-Z0-9_-]+)/?$ php/TicketVer.php?ciudad=1&idticket=$1&estado=$2 [L]
+RewriteRule ^tickets/evaluaciones/?$ php/TicketEvaluacionesSedes.php?ciudad=1 [L]
+RewriteRule ^tickets/NuevoTicket/?$ php/TicketNuevo.php?ciudad=1 [L]
+
+RewriteRule ^muro/usuario([0-9]+)/?$ php/logueoMuro.php?ciudad=1&idusuario=$1 [L]
+RewriteRule ^muros/?$ php/logueoMuroPerfiles.php?ciudad=1 [L]
+
+RewriteRule ^documentos/categoria([0-9]+)/contenido([0-9]+)/?$ php/logueoCategoriasVerDocumentos.php?idcategoria=$1&idcontenido=$2&ciudad=1 [L]
+RewriteRule ^documentos/categoria([0-9]+)/?$ php/logueoCategoriasDocumentos.php?idcategoria=$1&ciudad=1 [L]
+
+RewriteRule ^descargas/categoria([0-9]+)/contenido([0-9]+)/?$ php/logueoCategoriasVerDescargas.php?idcategoria=$1&idcontenido=$2&ciudad=1 [L]
+RewriteRule ^descargas/categoria([0-9]+)/?$ php/logueoCategoriasDescargas.php?idcategoria=$1&ciudad=1 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ php/matriz.php?ciudad=1&pagename=$1 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ php/matriz-ver.php?modulo=$1&url=$2&ciudad=1 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/tags/([a-zA-Z0-9_-]+)/?$ php/tags.php?modulo=$1&tag=$2&ciudad=1 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/tags/([a-zA-Z0-9_-]+)/([0-9]+)/?$ php/tags.phpmodulo=$1&tag=$2&ciudad=1&pag=$3 [L]
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php5_module>
+   php_flag asp_tags Off
+   php_flag display_errors On
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 128M
+   php_value post_max_size 85M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php56"
+   php_value upload_max_filesize 75M
+   php_flag zlib.output_compression Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag asp_tags Off
+   php_flag display_errors On
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 128M
+   php_value post_max_size 85M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php56"
+   php_value upload_max_filesize 75M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+RewriteCond %{HTTP_HOST} ^agrotecnico\.co$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.agrotecnico\.co$
+RewriteRule ^/?$ "https\:\/\/agrotecnico\.com\.co\/" [R=301,L]

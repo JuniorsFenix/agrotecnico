@@ -1,0 +1,2 @@
+    <footer>&copy; todos los derechos reservados por clickee &nbsp;&nbsp;<a href="mailto:info@clickee.com" title="Esc&iacute;benos!!!" class="botonAbajo">info@clickee.com</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.clickee.com" title="Agencia que realiz&oacute; este Administrador de Contenidos..." target="_blank" class="botonAbajo">www.clickee.com</a>
+    </footer>

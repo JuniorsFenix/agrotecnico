@@ -1,0 +1,1 @@
+<?php require_once locate_template('/functions/theme/shortcode/ux-core.php'); ?>

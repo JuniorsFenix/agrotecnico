@@ -1,0 +1,12 @@
+/* if you wish to add styles to the counters */
+.seocounter {
+	background:#EFEFEF;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    color: #666;
+    display: inline-block;
+    padding: 3px 6px;
+}
+.limit{
+	background:#FF7577;
+}

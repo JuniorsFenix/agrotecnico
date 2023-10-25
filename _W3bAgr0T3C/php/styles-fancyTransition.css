@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+
+#head .download a:hover { background-color: #474747 !important; text-decoration: none; }
+
+.cabezoteHolder { width: 100%; float: left; }
+.cabezoteFt { border: 5px; -moz-border-radius: 5px;}
+
+
+.ftHolder { width: 100%; float: left; height: auto; padding-top: 20px; }
+.ft { border: 5px solid #BAD340; -moz-border-radius: 5px; }
+.ft-title { padding: 10px 10px; text-align: left; }
+
+
+.topbar h2{ font-weight: normal !important; }
+.topbar a {
+	color: #FF9900;
+	text-decoration: none;
+}
+.topbar a:hover { text-decoration: underline; }
+
+
+
+/*
+Styles "cabezote" por defecto
+*/
+.ft-buttons-cabezote a {
+	color: #FFF;
+	text-decoration: none;
+	background-color: #333;
+}
+
+.ft-buttons-cabezote a:hover { text-decoration: underline; }
+
+.btts-prev-next-cabezote .ft-prev, .btts-prev-next-cabezote .ft-next {
+	background-color: #000;
+	padding: 0 10px;
+	color: #F90;
+}
+
+.ft-buttons-cabezote .ft-button-cabezote-active { color: black; }
+
+
+
+
+/*
+Styles "cabezote" personalizar, se podrá duplicar y cambiar para otros
+*/
+.ft-buttons-ft1 a {
+    color: #FFF;
+    text-decoration: none;
+    background-color: mediumslateblue;
+}
+
+.ft-buttons-ft1 a:hover { text-decoration: underline; }
+
+.btts-prev-next-ft1 .ft-prev, .btts-prev-next-ft1 .ft-next { background-color: #000; padding: 0 10px; color: #0B698A; }
+
+.ft-buttons-ft1 .ft-button-ft1-active { color: black; }
+
+
+/*
+Styles "jq-ld"
+*/
+.ft-buttons-jq-ld a {
+    color: #FFF;
+    text-decoration: none;
+    background-color: cornflowerblue;
+}
+
+.ft-buttons-jq-ld a:hover { text-decoration: underline; }
+
+.btts-prev-next-jq-ld .ft-prev, .btts-prev-next-jq-ld .ft-next { background-color: #000; padding: 0 10px; color: blueviolet; }
+
+.ft-buttons-jq-ld .ft-button-jq-ld-active { color: blue; }
