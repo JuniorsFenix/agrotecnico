@@ -135,33 +135,36 @@ function ux_pb_module_blog($itemid)
 
 				if ($ncategorias == 0) :
 					$campos    = mysqli_query($nConexion, "SELECT * FROM campos ca JOIN campos_matriz cm on (ca.campo=cm.campo) WHERE cm.idmatriz = '$category' ORDER BY cm.id ASC");
-					echo "<div class='$tabla'>";
-					while ($Registro = mysqli_fetch_assoc($Resultado)) :
-						$fotos    = mysqli_query($nConexion, "SELECT * FROM imagenes_matriz WHERE idmatriz = $category and idcontenido = {$Registro["id"]} LIMIT 1"); ?>
-						<div class="px-md-5" itemscope>
-							<a class="imagenA" href="<?php echo "$home/$tabla/{$Registro["url"]}"; ?>">
-								<?php if (!mysqli_num_rows($fotos)) { ?>
-									<img src="<?php echo "$home/fotos/Image/contenidos/"; ?>default.jpg" />
-								<?php }
-								while ($Fotos = mysqli_fetch_object($fotos)) : ?>
-									<img src="<?php echo "$home/fotos/Image/" . $tabla . "/" . $Fotos->imagen; ?>" />
-								<?php endwhile;  ?>
-							</a> 
-							<div class="campos">
-								<?php while ($r = mysqli_fetch_assoc($campos)) :
-									if ($r["campo"] == "Resumen") {
-										echo "<p>" . $Registro["Resumen"] . "</p>";
-									} elseif ($r["campo"] == "Titulo") { ?>
-										<h3><a class="link" href="<?php echo "$home/$tabla/{$Registro["url"]}"; ?>"><?php echo $Registro[$r["campo"]]; ?></a></h3>
-									<?php  } elseif ($r["campo"] == "Subtitulo") { ?>
-										<h4><?php echo $Registro[$r["campo"]]; ?></h4>
-								<?php  }
-								endwhile;
-								mysqli_data_seek($campos, 0); ?>
-								<a class="link ver-mas" href="<?php echo "$home/$tabla/{$Registro["url"]}"; ?>">Ver más</a>
+				?>
+					<div class="game-changer">
+						<?php echo "<div class='$tabla'>";
+						while ($Registro = mysqli_fetch_assoc($Resultado)) :
+							$fotos    = mysqli_query($nConexion, "SELECT * FROM imagenes_matriz WHERE idmatriz = $category and idcontenido = {$Registro["id"]} LIMIT 1"); ?>
+							<div itemscope>
+								<a class="imagenA" href="<?php echo "$home/$tabla/{$Registro["url"]}"; ?>">
+									<?php if (!mysqli_num_rows($fotos)) { ?>
+										<img src="<?php echo "$home/fotos/Image/contenidos/"; ?>default.jpg" />
+									<?php }
+									while ($Fotos = mysqli_fetch_object($fotos)) : ?>
+										<img src="<?php echo "$home/fotos/Image/" . $tabla . "/" . $Fotos->imagen; ?>" />
+									<?php endwhile;  ?>
+								</a>
+								<div class="campos">
+									<?php while ($r = mysqli_fetch_assoc($campos)) :
+										if ($r["campo"] == "Resumen") {
+											echo "<p>" . $Registro["Resumen"] . "</p>";
+										} elseif ($r["campo"] == "Titulo") { ?>
+											<h3><a class="link" href="<?php echo "$home/$tabla/{$Registro["url"]}"; ?>"><?php echo $Registro[$r["campo"]]; ?></a></h3>
+										<?php  } elseif ($r["campo"] == "Subtitulo") { ?>
+											<h4><?php echo $Registro[$r["campo"]]; ?></h4>
+									<?php  }
+									endwhile;
+									mysqli_data_seek($campos, 0); ?>
+									<a class="link ver-mas" href="<?php echo "$home/$tabla/{$Registro["url"]}"; ?>">Ver más</a>
+								</div>
 							</div>
-						</div>
-					<?php endwhile; ?>
+						<?php endwhile; ?>
+					</div>
 					</div>
 					<?php else :
 					$Resultado    = mysqli_query($nConexion, "SELECT * FROM tblmatriz WHERE idcategoria={$matriz["id"]} ORDER BY id ASC LIMIT $per_page");
@@ -174,7 +177,7 @@ function ux_pb_module_blog($itemid)
 										<img src="<?php echo "$home/fotos/Image/contenidos/"; ?>default.jpg" />
 									<?php } else {
 									?><img src="<?php echo "$home/fotos/Image/" . $Registro["tabla"] . "/p_" . $Registro["imagen"]; ?>"><?
-																															} ?>
+																																	} ?>
 								</a>
 								<div class="campos">
 									<h3><a class="link" href="<?php echo "$home/{$Registro["tabla"]}"; ?>"><?php echo $Registro["titulo"]; ?></a></h3>

@@ -240,8 +240,8 @@
     .contenerdor--redes-general>a>img {
       width: 100%;
       height: 100%;
-      max-width: 40px;
-      max-height: 40px;
+      max-width: 30px;
+      max-height: 30px;
     }
   </style>
   <?php $RegContenido = mysqli_fetch_object(VerContenido("whatsapp"));

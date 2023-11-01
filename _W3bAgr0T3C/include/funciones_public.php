@@ -1807,11 +1807,11 @@ function ImprimirMenuPie()
                                                                                                                                                                                                                                           $sql = "select * from tblti_productos where url = '" . $url . "'";
 
                                                                                                                                                                                                                                           $sql = "SELECT  P.*,
-                    U.nombre as uso
-              FROM  tblti_productos P
-        LEFT JOIN  agro_usos as U
-                ON  P.usos = U.id
-             WHERE  P.url = '{$url}' AND P.activo=1 ";
+                                                                                                                                                                                                                                                    U.nombre as uso
+                                                                                                                                                                                                                                              FROM  tblti_productos P
+                                                                                                                                                                                                                                        LEFT JOIN  agro_usos as U
+                                                                                                                                                                                                                                                ON  P.usos = U.id
+                                                                                                                                                                                                                                            WHERE  P.url = '{$url}' AND P.activo=1 ";
 
                                                                                                                                                                                                                                           $ra = mysqli_query($nConexion, $sql);
                                                                                                                                                                                                                                           if (mysqli_num_rows($ra) == 0) {

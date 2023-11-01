@@ -86,79 +86,135 @@ $RegContenido = mysqli_fetch_object(VerContenido("metaTags"));
 			// var_dump($html);
 			foreach ($html->find('div#main') as $e)
 				echo $e;
-				?>
+			?>
 			<?php if ($_GET["pagename"] == "quienes-somos") { ?>
 				<style>
-					.descripcionS {
-						max-height: 290px;
-						position: relative;
-						overflow: hidden;
-						transition: max-height 0.3s ease-in-out;
+					.volver{
+						background: transparent;
+						color: #AAAAAA;
+						position: absolute;
+						bottom:134vh;
+						left: 0;
+					}
+					.volver>span{
+						color: #243A44;
+						font-size: 0.8rem;
+						font-weight: 800;
+					}
+					.volver:hover{
+						background: transparent;
+						color: #AAAAAA;
+						text-decoration: none;
+					}
+					.slider{
+						display: none;
+					}
+					.container-producto{
+						background-color: #EFEFEF;
+						padding-top: 1rem;
+						border-radius: 10px;
+						
+					}
+					.mision-vision--container {
+						display: flex;
+						justify-content: center;
+						width: 100%;
+						gap: 20px;
+						flex-wrap: wrap;
+						/* position: relative; */
 					}
 
-					.ampliar {
-						padding: 6px;
-						display: inline-block;
-						border-radius: .7rem;
-						background: linear-gradient(to right, #AAC148, #509F4E);
-						color: #fff;
-						font-size: 1.2rem;
-						min-width: 121px;
-						text-align: center;
-						margin: 20px auto;
-						width: auto;
-						line-height: 1;
-					}
-
-					.descripcionS.abierto {
-						max-height: 2000px;
-					}
-
-					.mision-vision .col-md-6 {
-						border-left: none !important;
-						margin-top: 1rem;
-					}
-
-					.mision-vision .margen {
-						border-radius: 1rem;
-						height: 100%;
+					.mision-vision-campo--container {
+						width: 32%;
+						height: 200px;
+						padding: 1rem 1.2rem;
+						background-color: #243A44;
+						border-radius: 20px;
 						display: flex;
 						flex-direction: column;
-						position: relative;
-						padding: 2rem;
-						background: #fff;
-						box-shadow: inset 0px 0px 0px 0.7rem #DEDEE0;
+						justify-content: space-between;
 					}
 
-					.mision-vision .margen::after {
-						position: absolute;
-						top: -5px;
-						bottom: -5px;
-						left: -5px;
-						right: -5px;
-						background: linear-gradient(to right, #AAC148, #509F4E);
-						content: '';
-						z-index: -1;
-						border-radius: 1rem;
-						opacity: 0;
-						transition: all 0.2s ease-in-out;
-					}
-
-					.mision-vision .margen:hover::after {
-						opacity: 1;
-					}
-
-					.mision-vision .margen h3 {
-						padding: .6rem;
-						display: inline-block;
-						border-radius: .4rem;
-						background: linear-gradient(to right, #AAC148, #509F4E);
-						color: #fff;
+					.mision-vision-campo--container>h2 {
+						color: #C8E638;
+						font-weight: 800;
 						font-size: 1.2rem;
-						min-width: 135px;
-						margin: 0 auto 1.2rem auto;
-						width: auto;
-						line-height: 1;
+					}
+
+					.mision-vision-campo--container>p {
+						color: #FFFFFF;
+						font-size: 0.8rem;
+					}
+
+					.cell h2{
+						color: #243A44;
+						font-weight: 800;
+						font-family: var(----fuente-sitio3);
+					}
+					.cell p{
+						color: #243A44;
+						font-size: 0.8rem;
+					}
+					.cell iframe{
+						height: 100%;
+						width: 100%;
+					}
+					.quienes-somos--layout {
+						display: grid;
+						grid-template-columns: repeat(3, 1fr);
+						grid-template-rows: 1fr 1fr;
+
+						gap: 30px;
+						width: 100%;
+						height: 100%;
+						margin-top: 30px;
+						padding: 0px 10px;
+						/* max-height: 80%; */
+					}
+
+					.flex--container{
+						display: flex;
+					}
+					
+					.cell:nth-child(1) {
+						grid-column: 1 / 2;
+						grid-row: 1 / 3;
+					}
+
+					.cell:nth-child(2) {
+						grid-column: 2 / 4;
+						grid-row: 1 / 2;
+						border-radius: 30px;
+						overflow: hidden;
+					}
+
+					.cell:nth-child(3) {
+						grid-column: 2 / 3;
+						grid-row: 2 / 3;
+					}
+
+					.cell:nth-child(4) {
+						grid-column: 3 / 4;
+						grid-row: 2 / 3;
+					}
+
+					@media(max-width:1000px){
+						.mision-vision-campo--container{
+							min-width: 281px;
+							padding: 1rem 1rem;
+						}
+						
+					}
+					@media(max-width:756px){
+						.mision-vision-campo--container{
+							min-width: 281px;
+							padding: 1rem 1rem;
+						}
+						.quienes-somos--layout{
+							display: flex;
+							flex-direction: column;
+
+						}
 					}
 				</style>
 				<script type="text/javascript">
@@ -180,7 +236,7 @@ $RegContenido = mysqli_fetch_object(VerContenido("metaTags"));
 			<?php if ($_GET["pagename"] != "home") { ?>
 				<div class="fullwrap_moudle pb-5">
 					<div class="container">
-						<a href="<?php echo $home; ?>/" class="volver">Volver</a>
+						<a href="<?php echo $home; ?>/" class="volver"><span><</span> Volver</a>
 					</div>
 				</div>
 				<style>
